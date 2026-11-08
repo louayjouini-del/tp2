@@ -1,0 +1,45 @@
+
+name: Angular and Spring Boot CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build Angular
+        working-directory: angular-app
+        run: |
+          npm ci
+          npm run build -- --configuration production
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: springboot/app/pom.xml
+
+      - name: Test Spring Boot
+        working-directory: springboot/app
+        run: |
+          chmod +x mvnw
+          ./mvnw -B test
