@@ -1,34 +1,148 @@
-.centered-div {
-  /* Styles for the centered <div> */
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: center;
-  align-items: center;
+
+.page-container {
   min-height: 100vh;
-  background-color: #f0f0f0; /* Optional background color for the <div> */
+  background: #f4f6fb;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+
+.header h1 {
+  color: #263b65;
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  color: #777;
+  margin-top: 8px;
+}
+
+.user-icon {
+  background: #e2eaff;
+  color: #3156a3;
+  padding: 18px;
+  border-radius: 15px;
+  font-size: 25px;
+}
+
+.content-card {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.content-card h2 {
+  color: #263b65;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #888;
+  margin-bottom: 25px;
 }
 
 .table-container {
-  /* Styles for the container of the centered <table> */
-  background-color: #6be03d; /* Optional background color for the container */
-  padding: 20px;
-  border: 1px solid #ccc; /* Optional border for the container */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional box shadow for the container */
-  text-align: center; /* Optional text alignment */
-  margin-bottom: 20px; /* Add margin to separate the container and button */
+  width: 100%;
+  border-collapse: collapse;
 }
 
-button {
-  /* Styles for the button */
-  background-color: #6be03d; /* Button background color */
-  color: #fff; /* Button text color */
-  padding: 10px 20px;
+.table-container th {
+  background: #f1f4fa;
+  color: #405477;
+  text-align: left;
+  padding: 15px;
+}
+
+.table-container td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.table-container tr:hover {
+  background: #fafbff;
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: #e04444;
   border: none;
+  padding: 9px 12px;
+  border-radius: 7px;
   cursor: pointer;
 }
 
-.fa-trash {
-  color: red; /* Change the icon color */
-  font-size: 15px; /* Adjust the icon size */
-  cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+.delete-btn:hover {
+  background: #e04444;
+  color: white;
 }
+
+.empty-message {
+  text-align: center;
+  color: #999;
+}
+
+.add-section {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #eee;
+}
+
+.form-fields {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.form-fields input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  outline: none;
+}
+
+.form-fields input:focus {
+  border-color: #3156a3;
+}
+
+.add-btn {
+  background: #3156a3;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #263b65;
+}
+
+@media (max-width: 650px) {
+  .page-container {
+    padding: 15px;
+  }
+
+  .content-card {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  .form-fields {
+    flex-direction: column;
+  }
+}
+
